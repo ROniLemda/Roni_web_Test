@@ -232,7 +232,7 @@
             }
 
             .quantity-controls {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 8px;
             }
         }
@@ -476,7 +476,8 @@
                 if (quantity > 0) {
                     const productName = item.querySelector('span').textContent.trim();
                     const price = parseInt(item.dataset.price);
-                    orderText += `${productName} - ${quantity} יחידות (${price * quantity}₪)\n`;
+                    const totalUnits = quantity * 10; // כל כמות = 10 יחידות
+                    orderText += `${productName} - ${totalUnits} יחידות (${quantity} אריזות × ${price}₪ = ${price * quantity}₪)\n`;
                     hasItems = true;
                 }
             });
